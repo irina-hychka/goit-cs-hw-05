@@ -1,6 +1,6 @@
 # Homework for the module “Asynchronous Processing”
 
-## Task 1 —  
+## Task 1 - Asynchronous File Sorting by Extension
 
 **Description:**  
 Write a Python script that reads all files in a user-provided **source** folder and distributes them into subfolders inside an **output** folder based on file extensions. The sorting must be performed **asynchronously** to handle large numbers of files efficiently.
@@ -31,7 +31,7 @@ Sort all files from ./inbox into ./sorted:
 python async_file_sorter.py --source ./inbox --output ./sorted
 ```
 
- ## Task 2 — MapReduce Word Frequency Analysis
+ ## Task 2 - MapReduce Word Frequency Analysis
 
  **Description:**  
 Write a Python script that downloads text from a given URL, analyzes word frequency in the text using the MapReduce paradigm, and visualizes the top most frequent words.
