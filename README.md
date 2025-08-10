@@ -1,6 +1,6 @@
 # Homework for the module “Asynchronous Processing”
 
-## Task 1 — Asynchronous File Sorting by Extension
+## Task 1 —  
 
 **Description:**  
 Write a Python script that reads all files in a user-provided **source** folder and distributes them into subfolders inside an **output** folder based on file extensions. The sorting must be performed **asynchronously** to handle large numbers of files efficiently.
