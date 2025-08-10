@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: hw02
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 567234
+    ports:
+      - "5433:5432" # host:container
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d hw02"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  app:
+    build: .
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SQLALCHEMY_DATABASE_URL: postgresql+psycopg2://postgres:567234@db:5432/hw02
+    # Automatically restart the container unless it is manually stopped
+    restart: unless-stopped
+
+volumes:
+  pgdata:
